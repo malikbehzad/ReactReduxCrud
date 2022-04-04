@@ -1,11 +1,11 @@
 {
   "users": [
     {
-      "id": 1,
       "name": "Soban",
       "email": "soban@gmail.com",
       "classs": "BSCS",
-      "age": "20"
+      "age": "20",
+      "id": 1
     },
     {
       "name": "Behzad",
@@ -25,92 +25,30 @@
       "name": "Husnain",
       "email": "husnain@gmail.com",
       "classs": "BSCS",
-      "age": "20",
+      "age": "21",
       "id": 7
     },
     {
       "name": "Bilal",
-      "email": "bilal@soban.com",
-      "classs": "BSCS",
-      "age": "20",
+      "email": "bilal@gmail.com",
+      "classs": "BsCs",
+      "age": "21",
+      "id": 8
+    },
+    {
+      "name": "hassan",
+      "email": "hassan@gmail.com",
+      "classs": "BsCs",
+      "age": "22",
       "id": 9
     },
     {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
+      "name": "Hamza",
+      "email": "Hamza@gmail.com",
+      "classs": "BsCs",
+      "age": "23",
       "id": 10
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 11
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 12
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 13
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 14
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 15
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 16
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 17
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 18
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 19
-    },
-    {
-      "name": "",
-      "email": "",
-      "classs": "",
-      "age": "",
-      "id": 20
     }
+    
   ]
 }
