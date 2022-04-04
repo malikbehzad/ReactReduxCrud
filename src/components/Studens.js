@@ -74,7 +74,7 @@ function Students() {
     }
   }
   const handleFormSubmit = () => {
-    if(formDataReducer.name === "") {
+    if(formDataReducer.name === "" || formDataReducer.email === "" || formDataReducer.classs === "" || formDataReducer.age === "") {
       return setError("Please fill all the fields")
     }
    
