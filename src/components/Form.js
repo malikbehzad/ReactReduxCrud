@@ -1,10 +1,9 @@
+import { TextField } from '@material-ui/core';
 import React from 'react'
 import { useDispatch,useSelector } from 'react-redux';
-import { Button, FormControlLabel, FormHelperText, Input, InputLabel, TextField } from '@material-ui/core';
 import { setFormData } from '../Redux/actions/studentActions';
-import { FormControl } from '@material-ui/core';
 
-const Form = () => {
+const Form = ({error}) => {
 
     const { formDataReducer } = useSelector(state => state);
     const {id,name,email,classs, age}= formDataReducer;
@@ -21,11 +20,13 @@ const Form = () => {
 
   return (
     <div>
+      
         <form >
-             <TextField id="name" value={name} onChange={e=>onChange(e)} placeholder="Enter name" label="Name" variant="outlined" margin="dense" type='string'  fullWidth />
-             <TextField id="email" value={email} onChange={e=>onChange(e)} placeholder="Enter email" label="Email" variant="outlined" margin="dense" type='email' required fullWidth />
-             <TextField id="class" value={classs} onChange={e=>onChange(e)} placeholder="Enter CLass" label="Class" variant="outlined" margin="dense" required fullWidth />
-             <TextField id="age" value={age} onChange={e=>onChange(e)} placeholder="Enter Age" label="Age" variant="outlined" margin="dense" type='number' required fullWidth />
+              <p style={{color: "red"}}>{error}</p>
+             <TextField id="name" value={name} onChange={e=>onChange(e)} placeholder="Enter name" label="Name" variant="outlined" margin="dense" type='string' autoComplete='off' required  fullWidth />
+             <TextField id="email" value={email} onChange={e=>onChange(e)} placeholder="Enter email" label="Email" variant="outlined" margin="dense" type='email' autoComplete='off' required fullWidth />
+             <TextField id="classs" value={classs} onChange={e=>onChange(e)} placeholder="Enter CLass" label="Class" variant="outlined" margin="dense" autoComplete='off' required fullWidth />
+             <TextField id="age" value={age} onChange={e=>onChange(e)} placeholder="Enter Age" label="Age" variant="outlined" margin="dense" type='number' autoComplete='off' required fullWidth />
              
          </form>
     </div>

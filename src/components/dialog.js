@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 import Form from './Form';
 
-export default function FormDialog({handleClose,handleFormSubmit}) {
+export default function FormDialog({error , handleClose,handleFormSubmit}) {
 
 
   const {dialogOpenReducer,formDataReducer} =useSelector(state => state);
@@ -25,7 +25,7 @@ export default function FormDialog({handleClose,handleFormSubmit}) {
       >
         <DialogTitle id="alert-dialog-title">{id?"Update Student":"Create new Student"}</DialogTitle>
         <DialogContent>
-          <Form/>
+          <Form error={error}/>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="secondary" variant="outlined">

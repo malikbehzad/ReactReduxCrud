@@ -7,6 +7,7 @@ import { Grid, Button } from '@material-ui/core'
 import FormDialog from './dialog';
 import {useDispatch , useSelector} from 'react-redux'
 import {setGridApi,setFormData,setDialogOpen} from '../Redux/actions/studentActions'
+import axios from 'axios';
 
 const initialValue = { id:"",name: "", email: "", classs: "", age: "" }
 
@@ -14,6 +15,8 @@ function Students() {
   const dispatch = useDispatch();
   const {gridApi}  = useSelector(state => state.setApiGridReducer);
   const {formDataReducer ,dialogOpenReducer }  = useSelector(state => state);
+  const [error , setError] = useState('');
+  console.log("error:",error)
   console.log("dialogOpenReducer :",dialogOpenReducer);
   
   const handleClickOpen = () => {
@@ -38,8 +41,8 @@ function Students() {
     {
       headerName: "Actions", field: "id", cellRendererFramework: (params) => <div>
         {console.log("cell:",params)}
-        <Button variant="outlined" color="primary" onClick={() => handleUpdate(params.data)}>Update</Button>
-        <Button variant="outlined" color="secondary" onClick={() => handleDelete(params.value)}>Delete</Button>
+        <Button variant="contained" color="primary" style={{width:"40%", margin: "2px"}} onClick={() => handleUpdate(params.data)}>Update</Button>
+        <Button variant="contained" color="secondary" style={{backgroundColor: "crimson", color: "white", width:"40%", margin: "2px"}} onClick={() => handleDelete(params.value)}>Delete</Button>
       </div>
     }
   ]
@@ -50,14 +53,13 @@ function Students() {
 
   //fetching user data from server
   const getUsers = () => {
-    fetch(url).then(resp => resp.json()).then(resp => 
-    dispatch(setGridApi(resp)))
+    axios.get(url).then(resp => {
+      console.log("resp:",resp)
+      dispatch(setGridApi(resp.data))
+    })
   }
  
-  // const onGridReady = (data) => {
-  //    setGridApi(data)
-    
-  // }
+ 
  
   const handleUpdate = (data) => {
     dispatch(setFormData(data))
@@ -68,41 +70,33 @@ function Students() {
     console.log("handle delete id is:",id)
     const confirm = window.confirm("Are you sure, you want to delete this row", id)
     if (confirm) {
-      fetch(url + `/${id}`, { method: "DELETE" }).then(resp => resp.json()).then(resp => getUsers())
-
+           axios.delete(url + `/${id}`).then(resp => getUsers())
     }
   }
   const handleFormSubmit = () => {
+    if(formDataReducer.name === "") {
+      return setError("Please fill all the fields")
+    }
    
     if (formDataReducer.id) {
       
       //updating a user 
 
       const confirm = window.confirm("Are you sure, you want to update this row ?")
-      confirm && fetch(url + `/${formDataReducer.id}`, {
-        method: "PUT", body: JSON.stringify(formDataReducer), headers: {
-          'content-type': "application/json"
-        }
-      }).then(resp => resp.json())
-        .then(resp => {
-          handleClose()
-          getUsers()
-          dispatch(setFormData(initialValue))
+      confirm && axios.put(url + `/${formDataReducer.id}`, formDataReducer).then(resp => {
+        handleClose()
+        getUsers()
+        dispatch(setFormData(initialValue))
 
-        })
+      })
     } else {
       
       // adding new user
-      fetch(url, {
-        method: "POST", body: JSON.stringify(formDataReducer), headers: {
-          'content-type': "application/json"
-        }
-      }).then(resp => resp.json())
-        .then(resp => {
-          handleClose()
-          getUsers()
-          dispatch(setFormData(initialValue))
-        })
+      axios.post(url, formDataReducer).then(resp => {
+        getUsers()
+        dispatch(setFormData(initialValue))
+        handleClose()
+      })
     }
   }
 
@@ -117,13 +111,7 @@ function Students() {
     <div>
       <div className="App">
        <h1 align="center">Students Data</h1>
-       <h3>CRUD Operation with React</h3>
-       {/* <select onChange={e=> handleChange(e.target.value)}> */}
-       <select>
-           <option value="">5</option>
-           <option value="">7</option>
-           <option value="">100</option>
-         </select>
+       <h3>CRUD Operation with React Redux</h3>
          </div>
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -150,7 +138,7 @@ function Students() {
           </div>
         </Grid>
       </Grid>
-      <FormDialog  handleClose={handleClose} handleFormSubmit={handleFormSubmit} />
+      <FormDialog error={error}  handleClose={handleClose} handleFormSubmit={handleFormSubmit} />
     </div>
   );
 }
