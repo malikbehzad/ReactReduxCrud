@@ -15,7 +15,7 @@
       "id": 5
     },
     {
-      "name": "Rooman",
+      "name": "romaaniyan",
       "email": "rooman@gmail.com",
       "classs": "BSCS",
       "age": "20",
@@ -43,11 +43,11 @@
       "id": 9
     },
     {
-      "name": "Hamza",
-      "email": "Hamza@gmail.com",
-      "classs": "BsCs",
-      "age": "23",
-      "id": 10
+      "name": "Hafiz Behzad",
+      "email": "malikbehzad88@gmail.com",
+      "classs": "BSCS",
+      "age": "18",
+      "id": 11
     }
   ]
 }

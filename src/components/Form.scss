@@ -1,7 +1,6 @@
 $white-color: #f7f7f7;
 $light-gray:#ddd;
 $dark-gray:#626262;
-
 .form {
   width: 99%;
   overflow-y: hidden;
@@ -15,7 +14,6 @@ $dark-gray:#626262;
     background-color: #fff;
     box-shadow: 0 0 15px $light-gray;
   }
-
   .icon-box {
     background-color: #fff;
     border: 1px solid $light-gray;
@@ -32,21 +30,11 @@ $dark-gray:#626262;
       box-sizing: border-box;
     }
   }
-
-  h2 {
-    color: $dark-gray;
-    font-size: 20px;
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: 15px;
-  }
-
   hr {
    
     border: 0;
     border-top: 1px solid #eee;
   }
-
   p {
     color: #666666;
     text-align: center;
@@ -56,20 +44,14 @@ $dark-gray:#626262;
     box-sizing: border-box;
     
   }
-
   label {
     text-transform: uppercase;
     font-size: 16px;
     color: $dark-gray;
     font-weight: 500;
   }
-
   input {
-   
-    font-size: medium;
-    
-    
-    
+    font-size: medium; 
   }
   .form-button{
     text-align: center;
@@ -82,7 +64,6 @@ $dark-gray:#626262;
     align-items: center;
     
   }
-
   button {
     width: 40%;
     display: block;

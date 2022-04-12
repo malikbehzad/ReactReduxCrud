@@ -150,23 +150,11 @@ function Students() {
   return (
     <div>
       <div className="App">
-        <h1 align="center">Students Data</h1>
+        
         <h3>CRUD Operation with React Redux</h3>
       </div>
       <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: "#0068ac",
-              color: "white",
-              fontWeight: "600",
-            }}
-            onClick={handleClickOpen}
-          >
-            Add Student
-          </Button>
-        </Grid>
+        
         <Grid item xs={12}>
           <div
             className="ag-theme-alpine"
