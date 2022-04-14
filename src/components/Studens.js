@@ -43,11 +43,13 @@ function Students() {
     {
       headerName: "Actions",
       field: "id",
+      
       cellRendererFramework: (params) => (
         <div>
-          {console.log("cell:", params)}
+          {console.log("cell:", params) }
           <Button
             variant="contained"
+            data-testid={`${params.data.id}`}
             style={{
               backgroundColor: "#0068ac",
               width: "40%",
@@ -116,10 +118,6 @@ function Students() {
     if (formDataReducer.id) {
       //updating a user
 
-      const confirm = window.confirm(
-        "Are you sure, you want to update this row ?"
-      );
-      confirm &&
         axios
           .put('/users' + `/${formDataReducer.id}`, formDataReducer)
           .then((resp) => {
