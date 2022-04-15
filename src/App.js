@@ -1,20 +1,20 @@
+import "./App.scss";
+import Students from "./components/Studens";
+import Header from "./components/Header";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddStudent from "./components/AddStudent";
+import UpdateStudent from "./components/UpdateStudent.js";
 
-import './App.scss';
-import Students from './components/Studens';
-import Header from './components/Header';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddStudent from './components/AddStudent';
-
-
-function App() { 
- return (
+function App() {
+  return (
     <div className="App">
       <Router>
-      <Header/>
-      <Routes>
-        <Route path="/" element={<Students />} />
-        <Route path="/addStudent" element={<AddStudent />} />
-      </Routes>
+        <Header />
+        <Routes>
+          <Route exact path="/" element={<Students />} />
+          <Route exact path="/addStudent" element={<AddStudent />} />
+          <Route exact path="/updateStudent/:id" element={<UpdateStudent />} />
+        </Routes>
       </Router>
     </div>
   );

@@ -1,24 +1,24 @@
 {
   "users": [
     {
-      "name": "Soban",
-      "email": "soban@gmail.com",
+      "name": "Behzad",
+      "email": "behzad@gmail.com",
       "classs": "BSCS",
       "age": "20",
       "id": 1
     },
     {
-      "name": "Behzad",
-      "email": "behzad@gmail.com",
+      "name": "Soban",
+      "email": "soban@gmail.com",
       "classs": "BSCS",
       "age": "20",
       "id": 5
     },
     {
-      "name": "romaaniyan",
+      "name": "Romaan",
       "email": "rooman@gmail.com",
       "classs": "BSCS",
-      "age": "20",
+      "age": "23",
       "id": 6
     },
     {
@@ -34,13 +34,6 @@
       "classs": "BsCs",
       "age": "21",
       "id": 8
-    },
-    {
-      "name": "hassan",
-      "email": "hassan@gmail.com",
-      "classs": "BsCs",
-      "age": "22",
-      "id": 9
     },
     {
       "name": "Hafiz Behzad",
