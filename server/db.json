@@ -8,17 +8,17 @@
       "id": 1
     },
     {
-      "name": "Behzad",
-      "email": "behzad@gmail.com",
+      "name": "Soban",
+      "email": "soban@gmail.com",
       "classs": "BSCS",
       "age": "20",
       "id": 5
     },
     {
-      "name": "romaaniyan",
+      "name": "Romaan",
       "email": "rooman@gmail.com",
       "classs": "BSCS",
-      "age": "20",
+      "age": "23",
       "id": 6
     },
     {
@@ -41,55 +41,6 @@
       "classs": "BSCS",
       "age": "18",
       "id": 11
-    },
-    {
-      "name": "Behzad",
-      "email": "ali@gmail.com",
-      "classs": "BSCS",
-      "age": "22",
-      "id": 15
-    },
-    {
-      "name": "Behzad",
-      "email": "ali@gmail.com",
-      "classs": "BSCS",
-      "age": "22",
-      "id": 16
-    },
-    {
-      "name": "Behzad",
-      "email": "ali@gmail.com",
-      "classs": "BSCS",
-      "age": "22",
-      "id": 17
-    },
-    {
-      "name": "Behzad",
-      "email": "ali@gmail.com",
-      "classs": "BSCS",
-      "age": "22",
-      "id": 18
-    },
-    {
-      "name": "Behzad",
-      "email": "ali@gmail.com",
-      "classs": "BSCS",
-      "age": "22",
-      "id": 19
-    },
-    {
-      "name": "Behzad",
-      "email": "ali@gmail.com",
-      "classs": "BSCS",
-      "age": "22",
-      "id": 20
-    },
-    {
-      "name": "Behzad",
-      "email": "ali@gmail.com",
-      "classs": "BSCS",
-      "age": "22",
-      "id": 21
     }
   ]
 }

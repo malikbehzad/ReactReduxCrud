@@ -1,31 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Grid, Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setDialogOpen,
   setFormData,
   setGridApi,
 } from "../Redux/actions/studentActions";
-import FormDialog from "./dialog";
 import axios from "axios";
+import Form from "./Form";
 
-const AddStudent = () => {
+const UpdateStudent = () => {
   const initialValue = { id: "", name: "", email: "", classs: "", age: "" };
   const dispatch = useDispatch();
   const [error, setError] = useState("");
-  const { formDataReducer, dialogOpenReducer } = useSelector((state) => state);
+  const { formDataReducer } = useSelector((state) => state);
   const navigate = useNavigate();
-
-  // handling form Open
-  const handleClickOpen = () => {
-    dispatch(setDialogOpen(true));
-  };
 
   // handling form close
   const handleClose = () => {
-    dispatch(setDialogOpen(false));
     dispatch(setFormData(initialValue));
+    navigate("/");
   };
 
   // useEffect
@@ -53,38 +47,30 @@ const AddStudent = () => {
       formDataReducer >= 60
     )
       return setError("Age is required");
-    else {
+    else if (formDataReducer.id) {
+      //updating a user
+
+      axios
+        .put("/users" + `/${formDataReducer.id}`, formDataReducer)
+        .then((resp) => {
+          handleClose();
+          getUsers();
+          dispatch(setFormData(initialValue));
+        });
+      navigate("/");
+    } else {
       // adding new user
       axios.post("/users", formDataReducer).then((resp) => {
         getUsers();
         dispatch(setFormData(initialValue));
         handleClose();
       });
-      navigate("/");
     }
   };
 
   return (
     <div>
-      <div className="App">
-        <h3>CRUD Operation with React Redux</h3>
-      </div>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: "#0068ac",
-              color: "white",
-              fontWeight: "600",
-            }}
-            onClick={handleClickOpen}
-          >
-            Add Student
-          </Button>
-        </Grid>
-      </Grid>
-      <FormDialog
+      <Form
         error={error}
         handleClose={handleClose}
         handleFormSubmit={handleFormSubmit}
@@ -93,4 +79,4 @@ const AddStudent = () => {
   );
 };
 
-export default AddStudent;
+export default UpdateStudent;

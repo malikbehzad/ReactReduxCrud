@@ -106,7 +106,7 @@ describe("App.js", () => {
   //   const text = await page.$eval('[href="/"]', (e) => e.textContent);
   //   expect(text).toContain("Students Data");
   // }, 1000000);
-  
+
   // it("should check validation for age", async () => {
   //   await page.goto("http://localhost:3000/", {
   //     waitUntil: "networkidle2",
@@ -123,5 +123,4 @@ describe("App.js", () => {
   //   const text = await page.$eval('[href="/"]', (e) => e.textContent);
   //   expect(text).toContain("Students Data");
   // }, 1000000);
-
 });
